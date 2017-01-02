@@ -32,8 +32,8 @@ public class ProductCategoryDaoImpl implements ProductCategoryDao{
 		session.getCurrentSession().update(productCategory);
 	}
 
-	public boolean deleteProductCategory(int productCategoryId) {
-		session.getCurrentSession().delete(productCategoryId);
+	public boolean deleteProductCategory(ProductCategory productCategory) {
+		session.getCurrentSession().delete(productCategory);
 		return false;
 	}
 

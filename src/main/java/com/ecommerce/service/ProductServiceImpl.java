@@ -29,8 +29,8 @@ public class ProductServiceImpl implements ProductService {
 		productDao.updateProduct(product);
 	}
 
-	public boolean deleteProduct(int productId) {
-		return productDao.deleteProduct(productId);
+	public boolean deleteProduct(Product product) {
+		return productDao.deleteProduct(product);
 		//return true;
 	}
 

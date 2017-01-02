@@ -29,8 +29,8 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
 		productCategoryDao.updateProductCategory(productCategory);
 	}
 
-	public boolean deleteProductCategory(int productCategoryId) {
-		return productCategoryDao.deleteProductCategory(productCategoryId);
+	public boolean deleteProductCategory(ProductCategory productCategory) {
+		return productCategoryDao.deleteProductCategory(productCategory);
 		//return true;
 	}
 

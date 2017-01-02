@@ -1,8 +1,9 @@
 package com.ecommerce.model;
 
 import javax.persistence.*;
-
+//import org.springframework.web;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity 
 @Table (name = "products")
@@ -15,6 +16,9 @@ public class Product {
 	private String type;
 	private String description;
 	private double price;
+	
+	@Transient
+	private MultipartFile file;
 	
 	@ManyToOne 
 	@JoinColumn(name="product_category_id",referencedColumnName="id")
@@ -57,6 +61,12 @@ public class Product {
 		this.price = price;
 	}
 	
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 	
 	
 }

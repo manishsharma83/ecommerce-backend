@@ -11,6 +11,6 @@ public interface ProductCategoryDao {
 	public int addProductCategory(ProductCategory productCategory);
 	public ProductCategory getProductCategory(int productCategoryId);
 	public void updateProductCategory(ProductCategory productCategory);
-	public boolean deleteProductCategory(int productCategoryId);
+	public boolean deleteProductCategory(ProductCategory productCategory);
 	public List<ProductCategory> getAllProductCategories();
 }

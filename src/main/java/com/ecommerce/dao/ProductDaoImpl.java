@@ -37,8 +37,8 @@ public class ProductDaoImpl implements ProductDao{
 		session.getCurrentSession().update(product);
 	}
 
-	public boolean deleteProduct(int productId) {
-		session.getCurrentSession().delete(productId);
+	public boolean deleteProduct(Product product) {
+		session.getCurrentSession().delete(product);
 		return false;
 	}
 

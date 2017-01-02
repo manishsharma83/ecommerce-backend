@@ -113,10 +113,13 @@ public class PrepareTestData {
 		System.out.println("product object created");*/
 		
 		// Fetching product data
-		product = productService.getProduct(1);
+		product = productService.getProduct(3);
 		System.out.println("Fetched product : " + product.getName());
+		product.setName("Xiome RedMi Note 3");
+		productService.updateProduct(product);
 		
-		
+		product = productService.getProduct(3);
+		System.out.println("Updated product : " + product.getName());
 		
 		InventoryService inventoryService = (InventoryService) context.getBean("inventoryService");
 		Inventory inventory = (Inventory) context.getBean("inventory");
@@ -156,7 +159,7 @@ public class PrepareTestData {
 		OrderDetailsService orderDetailsService = (OrderDetailsService) context.getBean("orderDetailsService");
 		OrderDetails orderDetails = (OrderDetails) context.getBean("orderDetails");
 		
-		orderDetails.setOrder(order);
+		/*orderDetails.setOrder(order);
 		orderDetails.setProduct(product);
 		orderDetails.setQuantity(4);
 		
@@ -169,7 +172,10 @@ public class PrepareTestData {
 		System.out.println("Order Added");
 		
 		order = orderService.getOrder(1);
-		System.out.println("Fetched Order: "+ order.getId());
+		System.out.println("Fetched Order: "+ order.getId());*/
+		
+		
+		
 		context.close();
 	}
 
