@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ecommerce.model.UserCustomer;
+import com.ecommerce.model.UserSupplier;
 
 
 @Repository (value="userCustomerDao")
@@ -28,7 +29,11 @@ public class UserCustomerDaoImpl implements UserCustomerDao{
 	}
 
 	public UserCustomer getCustomer(int userId) {
-		return session.getCurrentSession().get(UserCustomer.class, userId);
+		Criteria criteria = session.getCurrentSession().createCriteria(UserCustomer.class);
+		criteria.add(Restrictions.eq("user.id", userId));
+		UserCustomer userCustomer = (UserCustomer) criteria.uniqueResult();
+		return userCustomer;
+		//return session.getCurrentSession().get(UserCustomer.class, userId);
 	}
 
 	public void updateCustomer(UserCustomer customer) {
@@ -36,7 +41,10 @@ public class UserCustomerDaoImpl implements UserCustomerDao{
 	}
 
 	public boolean deleteCustomer(int userId) {
-		session.getCurrentSession().delete(userId);
+		Criteria criteria = session.getCurrentSession().createCriteria(UserCustomer.class);
+		criteria.add(Restrictions.eq("user.id", userId));
+		UserCustomer userCustomer = (UserCustomer) criteria.uniqueResult();
+		session.getCurrentSession().delete(userCustomer);
 		return false;
 	}
 

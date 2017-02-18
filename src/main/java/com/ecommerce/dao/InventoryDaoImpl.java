@@ -26,6 +26,10 @@ public class InventoryDaoImpl implements InventoryDao{
 		return id;
 	}
 
+	public Inventory getProductInventory(int inventoryId) {
+		return session.getCurrentSession().get(Inventory.class, inventoryId);
+	}
+
 	public Inventory getProductInventoryBySupplier(UserSupplier supplier, Product product) {
 		Criteria criteria = session.getCurrentSession().createCriteria(Inventory.class);
 		//criteria.setFetchMode("user_suppliers", FetchMode.JOIN);

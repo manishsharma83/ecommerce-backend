@@ -9,9 +9,9 @@ import com.ecommerce.model.Role;
 
 @Service
 public interface RoleService {
-	public int addRole(Role user);
-	public Role getRole(int userId);
-	public void updateRole(Role user);
-	public boolean deleteRole(int userId);
+	public int addRole(Role role);
+	public Role getRole(int roleId);
+	public void updateRole(Role role);
+	public boolean deleteRole(int roleId);
 	public List<Role> getAllRoles();
 }
