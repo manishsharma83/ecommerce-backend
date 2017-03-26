@@ -1,5 +1,7 @@
 package com.ecommerce.model;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 import org.springframework.stereotype.Component;
@@ -7,7 +9,9 @@ import org.springframework.stereotype.Component;
 @Entity 
 @Table (name = "user_customers")
 @Component
-public class UserCustomer{
+public class UserCustomer implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id;
@@ -22,7 +26,15 @@ public class UserCustomer{
 	@Transient
 	private String cardno;
 	private String cardno_last4digit;
-
+	@Transient
+	private String cardcvc;
+	@Transient
+	private String cardname;
+	@Transient
+	private String card_exp_year;
+	@Transient
+	private String card_exp_month;
+	
 	
 	public int getId() {
 		return id;
@@ -79,6 +91,37 @@ public class UserCustomer{
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
+	public String getCardcvc() {
+		return cardcvc;
+	}
+
+	public void setCardcvc(String cardcvc) {
+		this.cardcvc = cardcvc;
+	}
+
+	public String getCardname() {
+		return cardname;
+	}
+
+	public void setCardname(String cardname) {
+		this.cardname = cardname;
+	}
+
+	public String getCard_exp_year() {
+		return card_exp_year;
+	}
+
+	public void setCard_exp_year(String card_exp_year) {
+		this.card_exp_year = card_exp_year;
+	}
+
+	public String getCard_exp_month() {
+		return card_exp_month;
+	}
+
+	public void setCard_exp_month(String card_exp_month) {
+		this.card_exp_month = card_exp_month;
+	}
 	
 }

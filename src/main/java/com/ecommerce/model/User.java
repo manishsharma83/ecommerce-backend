@@ -1,5 +1,7 @@
 package com.ecommerce.model;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 import org.springframework.stereotype.Component;
@@ -7,7 +9,9 @@ import org.springframework.stereotype.Component;
 @Entity 
 @Table (name = "users")
 @Component
-public class User {
+public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id;

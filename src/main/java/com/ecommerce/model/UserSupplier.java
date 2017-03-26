@@ -10,9 +10,6 @@ import org.springframework.stereotype.Component;
 @Table (name = "user_suppliers")
 @Component
 public class UserSupplier implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id

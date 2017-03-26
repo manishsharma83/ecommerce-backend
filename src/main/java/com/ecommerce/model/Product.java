@@ -1,5 +1,7 @@
 package com.ecommerce.model;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 //import org.springframework.web;
 import org.springframework.stereotype.Component;
@@ -8,7 +10,9 @@ import org.springframework.web.multipart.MultipartFile;
 @Entity 
 @Table (name = "products")
 @Component
-public class Product {
+public class Product implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id;
@@ -16,9 +20,15 @@ public class Product {
 	private String type;
 	private String description;
 	private double price;
+	private int quantity;
+	private String image_name;
 	
 	@Transient
 	private MultipartFile file;
+	
+	@ManyToOne 
+	@JoinColumn(name="supplier_id",referencedColumnName="id")
+	private UserSupplier supplier;
 	
 	@ManyToOne 
 	@JoinColumn(name="product_category_id",referencedColumnName="id")
@@ -29,6 +39,24 @@ public class Product {
 	}
 	public void setProductCategory(ProductCategory productCategory) {
 		this.productCategory = productCategory;
+	}
+	public UserSupplier getSupplier() {
+		return supplier;
+	}
+	public void setSupplier(UserSupplier supplier) {
+		this.supplier = supplier;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public String getImage_name() {
+		return image_name;
+	}
+	public void setImage_name(String image_name) {
+		this.image_name = image_name;
 	}
 	public int getId() {
 		return id;

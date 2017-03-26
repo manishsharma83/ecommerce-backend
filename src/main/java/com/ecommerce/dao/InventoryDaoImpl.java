@@ -72,4 +72,11 @@ public class InventoryDaoImpl implements InventoryDao{
 				.list();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Inventory> getAllInventory() {
+		return (List<Inventory>) session.getCurrentSession()
+				.createQuery("from Inventory")
+				.list();
+	}
+	
 }

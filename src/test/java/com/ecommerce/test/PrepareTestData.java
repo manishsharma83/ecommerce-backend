@@ -54,7 +54,7 @@ public class PrepareTestData {
 		System.out.println("customer object created");*/
 		
 		// Fetching customer data
-		customer = userCustomerService.getCustomer(1);
+		customer = userCustomerService.getCustomer(3);
 		System.out.println("Fetched customer : " + customer.getUser().getFirst_name());
 		
 		
@@ -113,16 +113,16 @@ public class PrepareTestData {
 		System.out.println("product object created");*/
 		
 		// Fetching product data
-		product = productService.getProduct(3);
+		product = productService.getProduct(1);
 		System.out.println("Fetched product : " + product.getName());
-		product.setName("Xiome RedMi Note 3");
-		productService.updateProduct(product);
+		//product.setName("Xiome RedMi Note 3");
+		//productService.updateProduct(product);
 		
-		product = productService.getProduct(3);
-		System.out.println("Updated product : " + product.getName());
+		//product = productService.getProduct(3);
+		//System.out.println("Updated product : " + product.getName());
 		
-		InventoryService inventoryService = (InventoryService) context.getBean("inventoryService");
-		Inventory inventory = (Inventory) context.getBean("inventory");
+		//InventoryService inventoryService = (InventoryService) context.getBean("inventoryService");
+		//Inventory inventory = (Inventory) context.getBean("inventory");
 		
 		/*inventory.setProduct(product);
 		inventory.setSupplier(supplier);
@@ -139,11 +139,11 @@ public class PrepareTestData {
 		//System.out.println("Fetched inventory : " + inventory.getQuantity());
 		
 		
-		System.out.println("===Fetched inventory using HQL=== ");
-		inventory = inventoryService.getProductInventoryBySupplierHQL(supplier.getUser().getId(), product.getId());
+		//System.out.println("===Fetched inventory using HQL=== ");
+		//inventory = inventoryService.getProductInventoryBySupplierHQL(supplier.getUser().getId(), product.getId());
 		
 		
-		System.out.println("Fetched inventory : " + inventory.getQuantity());
+		//System.out.println("Fetched inventory : " + inventory.getQuantity());
 		
 		
 		

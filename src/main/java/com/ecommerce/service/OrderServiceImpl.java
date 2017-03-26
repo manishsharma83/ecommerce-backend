@@ -16,9 +16,12 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	private OrderDao orderDao;
 	
+	public int createOrderFromUserCart(int userId) {
+		return orderDao.createOrderFromUserCart(userId);
+	}
+
 	public int addOrder(Order order) {
 		return orderDao.addOrder(order);
-		//return product.getId();
 	}
 
 	public Order getOrder(int orderId) {
@@ -36,6 +39,10 @@ public class OrderServiceImpl implements OrderService {
 
 	public List<Order> getAllOrders() {
 		return orderDao.getAllOrders();
+	}
+
+	public List<Order> getAllOrdersByUser(int userId) {
+		return orderDao.getAllOrdersByUser(userId);
 	}
 
 }

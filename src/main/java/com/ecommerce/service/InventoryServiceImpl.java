@@ -20,6 +20,10 @@ public class InventoryServiceImpl implements InventoryService {
 		return inventoryDao.addProductInventory(inventory);
 		//return user.getId();
 	}
+	
+	public Inventory getProductInventory(int inventoryId) {
+		return inventoryDao.getProductInventory(inventoryId);
+	}
 
 	public Inventory getProductInventoryBySupplier(UserSupplier supplier, Product product) {
 		return inventoryDao.getProductInventoryBySupplier(supplier, product);
@@ -40,6 +44,10 @@ public class InventoryServiceImpl implements InventoryService {
 
 	public List<Inventory> getAllInventoryBySupplier(int userId) {
 		return inventoryDao.getAllInventoryBySupplier(userId);
+	}
+
+	public List<Inventory> getAllInventory() {
+		return inventoryDao.getAllInventory();
 	}
 
 }
